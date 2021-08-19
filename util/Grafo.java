@@ -89,9 +89,8 @@ public class Grafo {
         this.pos = new int[numVertices];
         this.numVertices = numVertices;
         for (int i = 0; i < this.numVertices; i++) {
-            for (int j = 0; j < this.numVertices; j++) {
+            for (int j = 0; j < this.numVertices; j++)
                 this.mat[i][j] = null;
-            }
             this.pos[i] = -1;
         }
     }
@@ -112,9 +111,8 @@ public class Grafo {
 
     public boolean listaAdjVazia(int v) {
         for (int i = 0; i < this.numVertices; i++) {
-            if (this.mat[v][i] != null) {
+            if (this.mat[v][i] != null)
                 return false;
-            }
         }
         return true;
     }
@@ -134,20 +132,19 @@ public class Grafo {
      */
     public Aresta proxAdj(int v) {
         this.pos[v]++;
-        while ((this.pos[v] < this.numVertices) && (this.mat[v][this.pos[v]] == null)) {
+        while ((this.pos[v] < this.numVertices) && (this.mat[v][this.pos[v]] == null))
             this.pos[v]++;
-        }
-        if (this.pos[v] == this.numVertices) {
+        if (this.pos[v] == this.numVertices)
             return null;
-        } else {
+        else
             return new Aresta(v, this.pos[v], this.mat[v][this.pos[v]]);
-        }
+
     }
 
     public Aresta retiraAresta(int v1, int v2) {
-        if (this.mat[v1][v2] == null) {
+        if (this.mat[v1][v2] == null)
             return null; // @{\it Aresta n\~ao existe}@
-        } else {
+        else {
             Aresta aresta = new Aresta(v1, v2, this.mat[v1][v2]);
             this.mat[v1][v2] = null;
             return aresta;
@@ -177,9 +174,8 @@ public class Grafo {
         for (int i = 0; i < this.numVertices; i++) {
             System.out.print("[" + i + "]-> ");
             for (int j = 0; j < this.numVertices; j++) {
-                if (this.mat[i][j] != null) {
+                if (this.mat[i][j] != null)
                     System.out.print(j + " > ");
-                }
             }
             System.out.println(".");
         }

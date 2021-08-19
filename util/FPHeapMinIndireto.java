@@ -10,21 +10,18 @@ public class FPHeapMinIndireto {
         this.fp = v;
         this.n = this.fp.length - 1;
         this.pos = new int[this.n];
-        for (int u = 0; u < this.n; u++) {
+        for (int u = 0; u < this.n; u++)
             this.pos[u] = u + 1;
-        }
     }
 
     public void refaz(int esq, int dir) {
         int j = esq * 2;
         int x = this.fp[esq];
         while (j <= dir) {
-            if ((j < dir) && (this.p[fp[j]] > this.p[fp[j + 1]])) {
+            if ((j < dir) && (this.p[fp[j]] > this.p[fp[j + 1]]))
                 j++;
-            }
-            if (this.p[x] <= this.p[fp[j]]) {
+            if (this.p[x] <= this.p[fp[j]])
                 break;
-            }
             this.fp[esq] = this.fp[j];
             this.pos[fp[j]] = esq;
             esq = j;
@@ -44,9 +41,9 @@ public class FPHeapMinIndireto {
 
     public int retiraMin() throws Exception {
         int minimo;
-        if (this.n < 1) {
+        if (this.n < 1)
             throw new Exception("Erro: heap vazio");
-        } else {
+        else {
             minimo = this.fp[1];
             this.fp[1] = this.fp[this.n];
             this.pos[fp[this.n--]] = 1;
@@ -58,9 +55,8 @@ public class FPHeapMinIndireto {
     public void diminuiChave(int i, double chaveNova) throws Exception {
         i = this.pos[i];
         int x = fp[i];
-        if (chaveNova < 0) {
+        if (chaveNova < 0)
             throw new Exception("Erro: chaveNova com valor incorreto");
-        }
         this.p[x] = chaveNova;
         while ((i > 1) && (this.p[x] <= this.p[fp[i / 2]])) {
             this.fp[i] = this.fp[i / 2];
@@ -76,9 +72,8 @@ public class FPHeapMinIndireto {
     }
 
     public void imprime() {
-        for (int i = 1; i <= this.n; i++) {
+        for (int i = 1; i <= this.n; i++)
             System.out.print(this.p[fp[i]] + " ");
-        }
         System.out.println();
     }
 }

@@ -2,19 +2,19 @@ package util;
 
 public class LinhadeMontagem {
 
-    private int[] tempoEstacao;
-    private int[] tempoTransporte;
+    private int[] stationTime;
+    private int[] transportTime;
 
-    public LinhadeMontagem(int[] tempoEstacao, int[] tempoTransporte) {
-        this.tempoEstacao = tempoEstacao;
-        this.tempoTransporte = tempoTransporte;
+    public LinhadeMontagem(int[] stationTime, int[] transportTime) {
+        this.stationTime = stationTime;
+        this.transportTime = transportTime;
     }
 
-    public int[] getTempoEst() {
-        return tempoEstacao;
+    public int[] getStationTime() {
+        return stationTime;
     }
 
-    public int[] getTempoTrans() {
-        return tempoTransporte;
+    public int[] getTransportTime() {
+        return transportTime;
     }
 }
