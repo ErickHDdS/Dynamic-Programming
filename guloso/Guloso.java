@@ -20,13 +20,15 @@ public class Guloso {
         for (int i = 1; i < this.L1.getStationTime().length - 2; i++) 
             grafo.insereAresta(i, i + 1, this.L1.getStationTime()[i + 1]);                              
 
-        grafo.insereAresta(this.L1.getStationTime().length - 2, grafo.numVertices() - 1, this.L1.getStationTime()[this.L1.getStationTime().length - 1]);        //trabalhando com a primeira linha
-        grafo.insereAresta(0, this.L1.getStationTime().length - 1, this.L2.getStationTime()[0] + this.L2.getStationTime()[1]);                                  //trabalhando com a segunda linha
+        //trabalhando com a primeira linha
+        grafo.insereAresta(this.L1.getStationTime().length - 2, grafo.numVertices() - 1, this.L1.getStationTime()[this.L1.getStationTime().length - 1]); 
+        //trabalhando com a segunda linha     
+        grafo.insereAresta(0, this.L1.getStationTime().length - 1, this.L2.getStationTime()[0] + this.L2.getStationTime()[1]);                               
 
         for (int i = 0; i < this.L2.getStationTime().length - 2; i++) 
-            grafo.insereAresta(i + this.L1.getStationTime().length - 1, i + this.L1.getStationTime().length, this.L2.getStationTime()[i + 2]); 
-
-                                                                                                                                                                //transportando entre as linhas de montagem
+            //transportando entre as linhas de montagem
+            grafo.insereAresta(i + this.L1.getStationTime().length - 1, i + this.L1.getStationTime().length, this.L2.getStationTime()[i + 2]);         
+            
         for (int i = 0; i < this.L1.getTransportTime().length; i++) {
             grafo.insereAresta(i + 1, i + this.L1.getStationTime().length, this.L1.getTransportTime()[i] + this.L2.getStationTime()[i + 2]);
             grafo.insereAresta(i + this.L1.getStationTime().length - 1, i + 2, this.L2.getTransportTime()[i] + this.L1.getStationTime()[i + 2]);
