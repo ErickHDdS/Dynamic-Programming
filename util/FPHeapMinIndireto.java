@@ -1,5 +1,8 @@
+/*
+ Disponibilizado em Projeto de Algoritmos com implementações em Java e C++
+ Autor: Nivio Ziviani
+*/
 package util;
-
 public class FPHeapMinIndireto {
 
     private double p[];

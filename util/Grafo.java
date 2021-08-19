@@ -1,9 +1,11 @@
+/*
+ Disponibilizado em Projeto de Algoritmos com implementações em Java e C++
+ Autor: Nivio Ziviani
+*/
 package util;
 
 public class Grafo {
-
-    public class Peso {
-
+        public class Peso {
         private int distancia, tempo;
 
         public Peso(int distancia, int tempo) {
@@ -40,7 +42,6 @@ public class Grafo {
         public String toString() {
             return distancia + "";
         }
-
     }
 
     public static class Aresta {
@@ -80,9 +81,9 @@ public class Grafo {
 
     }
 
-    public Peso mat[][]; // pesos do tipo inteiro
+    public Peso mat[][];                            // pesos do tipo inteiro
     private int numVertices;
-    private int pos[]; // posicao atual ao se percorrer os adjs de um vertice v
+    private int pos[];                              // posicao atual ao se percorrer os adjs de um vertice v
 
     public Grafo(int numVertices) {
         this.mat = new Peso[numVertices][numVertices];
@@ -117,19 +118,11 @@ public class Grafo {
         return true;
     }
 
-    /*
-     * retorna a primeira aresta que o vertice v participa ou se a lista de
-     * adjacencia de v for vazia
-     */
     public Aresta primeiroListaAdj(int v) {
         this.pos[v] = -1;
         return this.proxAdj(v);
     }
 
-    /*
-     * retorna a proxima aresta que o vertice v participa ou se a lista de
-     * adjacencia de v estiver no fim
-     */
     public Aresta proxAdj(int v) {
         this.pos[v]++;
         while ((this.pos[v] < this.numVertices) && (this.mat[v][this.pos[v]] == null))
@@ -143,7 +136,7 @@ public class Grafo {
 
     public Aresta retiraAresta(int v1, int v2) {
         if (this.mat[v1][v2] == null)
-            return null; // @{\it Aresta n\~ao existe}@
+            return null;                                 //Aresta nao existe
         else {
             Aresta aresta = new Aresta(v1, v2, this.mat[v1][v2]);
             this.mat[v1][v2] = null;
