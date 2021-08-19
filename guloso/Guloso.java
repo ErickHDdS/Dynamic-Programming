@@ -1,14 +1,14 @@
 package guloso;
 
 import util.Grafo;
-import util.LinhadeMontagem;
+import util.LinhaDeMontagem;
 
 public class Guloso {
 
     private Grafo grafo;
-    private LinhadeMontagem L1, L2;
+    private LinhaDeMontagem L1, L2;
 
-    public Guloso(LinhadeMontagem L1, LinhadeMontagem L2) {
+    public Guloso(LinhaDeMontagem L1, LinhaDeMontagem L2) {
         this.L1 = L1;
         this.L2 = L1;
     }

@@ -1,11 +1,11 @@
 package util;
 
-public class LinhadeMontagem {
+public class LinhaDeMontagem {
 
     private int[] stationTime;
     private int[] transportTime;
 
-    public LinhadeMontagem(int[] stationTime, int[] transportTime) {
+    public LinhaDeMontagem(int[] stationTime, int[] transportTime) {
         this.stationTime = stationTime;
         this.transportTime = transportTime;
     }

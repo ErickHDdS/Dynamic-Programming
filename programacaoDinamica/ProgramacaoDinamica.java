@@ -1,16 +1,16 @@
 package programacaoDinamica;
 
-import util.LinhadeMontagem;
+import util.LinhaDeMontagem;
 
 public class ProgramacaoDinamica {
 
-    private LinhadeMontagem L1, L2; // linhas de montagem
+    private LinhaDeMontagem L1, L2; // linhas de montagem
     private int[] tempoMin1, tempoMin2; // vetores para guardar os custos minimos
     private int[] caminho1, caminho2; // vetores para guardar o caminho de quais linhas devem ser seguidas
     private int tempoFinal, linhaFinal; // valores que armazenarao a saida otima
     private int i; // variavel a ser iterada no metodo recursivo
 
-    public ProgramacaoDinamica(LinhadeMontagem L1, LinhadeMontagem L2) {
+    public ProgramacaoDinamica(LinhaDeMontagem L1, LinhaDeMontagem L2) {
         this.tempoMin1 = new int[L1.getTempoEst().length - 2];
         this.tempoMin2 = new int[L2.getTempoEst().length - 2];
         this.caminho1 = new int[L1.getTempoEst().length - 2];

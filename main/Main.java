@@ -1,6 +1,6 @@
 package main;
 
-import util.LinhadeMontagem;
+import util.LinhaDeMontagem;
 import dinamica.Dinamica;
 import guloso.*;
 
@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Guloso guloso;
         Dinamica programacaoDinamica;
-        LinhadeMontagem L1;
-        LinhadeMontagem L2;
+        LinhaDeMontagem L1;
+        LinhaDeMontagem L2;
 
         System.out.println("Instancia - 1");
         
@@ -19,8 +19,8 @@ public class Main {
         int[] T1 = new int[] {3,5,4,2,7,5,8,1};
         int[] T2 = new int[] {5,3,7,5,6,2,5,2};
 
-        L1 = new LinhadeMontagem(A1, T1); //criando a linha 1 
-        L2 = new LinhadeMontagem(A2, T2); //criando a linha 2 
+        L1 = new LinhaDeMontagem(A1, T1); //criando a linha 1 
+        L2 = new LinhaDeMontagem(A2, T2); //criando a linha 2 
 
         System.out.println("\nGuloso: ");
 
@@ -44,8 +44,8 @@ public class Main {
         T1 = new int[] {4,2,7,2,5,8,2};
         T2 = new int[] {6,1,7,3,6,4,5};
 
-        L1 = new LinhadeMontagem(A1, T1); //criando a linha 1
-        L2 = new LinhadeMontagem(A2, T2); //criando a linha 2
+        L1 = new LinhaDeMontagem(A1, T1); //criando a linha 1
+        L2 = new LinhaDeMontagem(A2, T2); //criando a linha 2
 
         System.out.println("\nGuloso: ");
 
