@@ -1,8 +1,8 @@
-package programacaoDinamica;
+package dinamica;
 
 import util.LinhaDeMontagem;
 
-public class ProgramacaoDinamica {
+public class Dinamica {
 
     private LinhaDeMontagem L1, L2; // linhas de montagem
     private int[] tempoMin1, tempoMin2; // vetores para guardar os custos minimos
@@ -10,15 +10,15 @@ public class ProgramacaoDinamica {
     private int tempoFinal, linhaFinal; // valores que armazenarao a saida otima
     private int i; // variavel a ser iterada no metodo recursivo
 
-    public ProgramacaoDinamica(LinhaDeMontagem L1, LinhaDeMontagem L2) {
-        this.tempoMin1 = new int[L1.getTempoEst().length - 2];
-        this.tempoMin2 = new int[L2.getTempoEst().length - 2];
-        this.caminho1 = new int[L1.getTempoEst().length - 2];
-        this.caminho2 = new int[L2.getTempoEst().length - 2];
+    public Dinamica(LinhaDeMontagem L1, LinhaDeMontagem L2) {
+        this.tempoMin1 = new int[L1.getStationTime().length - 2];
+        this.tempoMin2 = new int[L2.getStationTime().length - 2];
+        this.caminho1 = new int[L1.getStationTime().length - 2];
+        this.caminho2 = new int[L2.getStationTime().length - 2];
 
-        tempoMin1[0] = L1.getTempoEst()[0] + L1.getTempoEst()[1]; // inicializa a primeira posicao do primeiro vetor dos
+        tempoMin1[0] = L1.getStationTime()[0] + L1.getStationTime()[1]; // inicializa a primeira posicao do primeiro vetor dos
                                                                   // caminhos minimos
-        tempoMin2[0] = L2.getTempoEst()[0] + L2.getTempoEst()[1]; // inicializa a primeira posicao do segundo vetor dos
+        tempoMin2[0] = L2.getStationTime()[0] + L2.getStationTime()[1]; // inicializa a primeira posicao do segundo vetor dos
                                                                   // caminhos minimos
 
         caminho1[0] = 1; // inicializa a primeira posicao do vetor da ordem das linhas
@@ -33,13 +33,13 @@ public class ProgramacaoDinamica {
     public void caminhoMinimo() {
         // loop que comeca do 2 para que nao haja conflitos em arrays diferentes e de
         // tamanhos diferentes
-        for (i = 2; i <= L1.getTempoEst().length - 2; i++) {
+        for (i = 2; i <= L1.getStationTime().length - 2; i++) {
 
             // linha 1
             // calcula o custo de se manter na estacao 1
-            int tempo1 = tempoMin1[i - 2] + L1.getTempoEst()[i];
+            int tempo1 = tempoMin1[i - 2] + L1.getStationTime()[i];
             // calcula o custo de se trocar para a estacao 2
-            int tempo2 = tempoMin2[i - 2] + L2.getTempoTrans()[i - 2] + L1.getTempoEst()[i];
+            int tempo2 = tempoMin2[i - 2] + L2.getTransportTime()[i - 2] + L1.getStationTime()[i];
 
             // compara qual dos dois custos e melhor para ser armazenado no vetor
             if (tempo1 <= tempo2) {
@@ -58,9 +58,9 @@ public class ProgramacaoDinamica {
 
             // linha 2
             // calcula o custo de se manter na estacao 2
-            tempo1 = tempoMin2[i - 2] + L2.getTempoEst()[i];
+            tempo1 = tempoMin2[i - 2] + L2.getStationTime()[i];
             // calcula o custo de se trocar para a estacao 1
-            tempo2 = tempoMin1[i - 2] + L1.getTempoTrans()[i - 2] + L2.getTempoEst()[i];
+            tempo2 = tempoMin1[i - 2] + L1.getTransportTime()[i - 2] + L2.getStationTime()[i];
 
             // compara qual dos dois custos e melhor para ser armazenado no vetor
             if (tempo1 <= tempo2) {
@@ -79,15 +79,15 @@ public class ProgramacaoDinamica {
         }
 
         // ao final calcula qual saida e otima
-        if (tempoMin1[i - 2] + L1.getTempoEst()[L1.getTempoEst().length - 1] <= tempoMin2[i - 2]
-                + L2.getTempoEst()[L2.getTempoEst().length - 1]) {
+        if (tempoMin1[i - 2] + L1.getStationTime()[L1.getStationTime().length - 1] <= tempoMin2[i - 2]
+                + L2.getStationTime()[L2.getStationTime().length - 1]) {
             // armazena a saida otima caso seja a primeira
-            tempoFinal = tempoMin1[i - 2] + L1.getTempoEst()[L1.getTempoEst().length - 1];
+            tempoFinal = tempoMin1[i - 2] + L1.getStationTime()[L1.getStationTime().length - 1];
             // registra que e na linha 1
             linhaFinal = 1;
         } else {
             // armazena a saida otima caso seja a primeira
-            tempoFinal = tempoMin2[i - 2] + L2.getTempoEst()[L2.getTempoEst().length - 1];
+            tempoFinal = tempoMin2[i - 2] + L2.getStationTime()[L2.getStationTime().length - 1];
             // registra que e na linha 2
             linhaFinal = 2;
         }
@@ -97,9 +97,9 @@ public class ProgramacaoDinamica {
     public void imprimeCaminhoMinimo() {
         int j = linhaFinal;
         // printa a primeira linha antes do loop
-        System.out.println("Linha: " + j + "   Estação: " + (L1.getTempoEst().length - 2));
+        System.out.println("Linha: " + j + "   Estação: " + (L1.getStationTime().length - 2));
         // loop decrescente, da ultima estacao ate a primeira
-        for (i = L1.getTempoEst().length - 2; i > 1; i--) {
+        for (i = L1.getStationTime().length - 2; i > 1; i--) {
             // condicao para qual linha deve ser printada, de acordo com os valores salvos
             // nos vetores l1 e l2, na funcao caminhoMinimo()
             if (j == 1) {
@@ -108,7 +108,7 @@ public class ProgramacaoDinamica {
                 j = caminho2[i - 1];
             }
             // printa as estacoes e linhas de acordo com os valores previamente armazenados
-            System.out.println("Linha: " + j + "   Estação: " + (i - 1));
+            System.out.println("Linha: " + j + "   Estacao: " + (i - 1));
         }
         // ao final imprime o tempo total
         System.out.println("\nTempo gasto: " + tempoFinal + "\n\n");

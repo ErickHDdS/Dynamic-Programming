@@ -2,9 +2,9 @@ package guloso;
 
 import util.Grafo;
 
-public class JAEDsMaps {
+public class XAEDsMaps {
 
-    public JAEDsMaps() {
+    public XAEDsMaps() {
     }
 
     public void caminhoMinimoDijkstra(Grafo grafo, int v1, int v2) throws Exception {
