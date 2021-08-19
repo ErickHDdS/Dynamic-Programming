@@ -3,7 +3,7 @@
 
 ## Instruções para execução:
 
- 1. Acesse a pasta "src" 
+ 1. Acesse a pasta "main" 
  2. Compila o código "Main.java"
  `javac Main.java`
  3. Rode o código bytecode "Main.class" com `java Main.java`
