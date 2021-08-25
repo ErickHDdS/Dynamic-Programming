@@ -39,10 +39,11 @@ public class Main {
         System.out.println("Instancia - 2");
 
         // Situação do problema 2
-        A1 = new int[] {5,10,6,3,8,5,3,7,12,8};
-        A2 = new int[] {7,3,5,3,7,6,4,9,10,9};
-        T1 = new int[] {4,2,7,2,5,8,2};
-        T2 = new int[] {6,1,7,3,6,4,5};
+        A1 = new int[] {2,7,9,3,4,8,4,3};
+        A2 = new int[] {4,8,5,6,4,5,7,2};
+        
+        T1 = new int[] {2,3,1,3,4};
+        T2 = new int[] {2,1,7,3,6,4,5};
 
         L1 = new LinhaDeMontagem(A1, T1); //criando a linha 1
         L2 = new LinhaDeMontagem(A2, T2); //criando a linha 2
